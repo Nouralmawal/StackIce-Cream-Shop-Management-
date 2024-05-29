@@ -1,0 +1,123 @@
+﻿<Window x:Class="assinment1oop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:assinment1oop"
+        mc:Ignorable="d"
+        Title="Algida Ice Cream System" Height="700" Width="900">
+    <Grid  Background="Gray">
+
+
+        <GroupBox HorizontalAlignment="Left" Height="192" Header="Customer Information" Margin="11,15,0,0" VerticalAlignment="Top" Width="289" Grid.Row="1" >
+            <StackPanel>
+                <Label Content="Name/Surname" HorizontalAlignment="Right" Height="30" Margin="0,0,7,0" Width="260" VerticalAlignment="Top" />
+                <TextBox Name="name" Height="30" Width="260"  KeyUp="TextBox_KeyUp" KeyDown="TextBox_KeyDown"/>
+                <Label Content="Address" Height="30" Width="260" />
+                <TextBox Name="address" Height="70" Width="260" KeyUp="TextBox_KeyUp" KeyDown="TextBox_KeyDown" IsEnabled="False"/>
+                
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  x:Name="typeOfMilkGroupBox" HorizontalAlignment="Left" Height="63" Header="Type Of Milk" Margin="11,212,0,0" VerticalAlignment="Top" Width="289" Grid.Row="1" IsEnabled="False">
+            <StackPanel Orientation="Horizontal" Height="30">
+                <RadioButton x:Name="dietRadioButton" Content="Diet" GroupName="FatChoice" Margin="0,0,20,0" Checked="TypeOfMilkRadioButton_Checked"/>
+                <RadioButton x:Name="lowFatRadioButton" Content="LowFat" GroupName="FatChoice"  Margin="0,0,20,0" Checked="TypeOfMilkRadioButton_Checked"/>
+                <RadioButton x:Name="fatRadioButton" Content="Fat" GroupName="FatChoice" Margin="0,0,20,0" Checked="TypeOfMilkRadioButton_Checked" />
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="additionsGroupBox" HorizontalAlignment="Left" Height="178" Header="Additions" Margin="10,295,0,0" VerticalAlignment="Top" Width="289" Grid.Row="1" IsEnabled="False">
+            <Grid >
+                <StackPanel Background="Yellow" Orientation="Vertical" Height="148" Margin="0,4,172,3">
+                    <CheckBox Name="lemonFlavor" Content="Ice Lemon" Margin="0,0,0,25" Checked="FlavorCheckBox_Checked" />
+                    <CheckBox Name="bananaFlavor" Content="Ice Banana"  Margin="0,0,0,25" Checked="FlavorCheckBox_Checked" />
+                    <CheckBox Name="strowFlavor" Content="Ice Strawberry" Margin="0,0,0,25" Checked="FlavorCheckBox_Checked" />
+                    <CheckBox Name="chocolateFlavor" Content="Ice Chocolate" Checked="FlavorCheckBox_Checked" />
+
+
+                </StackPanel>
+                <TextBox x:Name="lemon" HorizontalAlignment="Left" Height="23" Margin="116,4,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74"   TextChanged="lemonQuantity_textChange"/>
+                <TextBox x:Name="banana" HorizontalAlignment="Left" Height="23" Margin="116,47,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" TextChanged="bananaQuantity_textChange"/>
+                <TextBox x:Name="strow" HorizontalAlignment="Left" Height="23" Margin="116,84,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" TextChanged="strowQuantity_textChange"/>
+                <TextBox x:Name="chocolate" HorizontalAlignment="Left" Height="23" Margin="116,122,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" TextChanged="chocolateQuantity_textChange"/>
+                <Button x:Name="lemonPlus" Content="+" Height="23" Margin="242,4,6,0" Width="29" RenderTransformOrigin="-0.621,0.554" FontWeight="Bold" VerticalAlignment="Top" FontSize="14" Foreground="#FF0C0B0B"/>
+                <Button x:Name="lemonMinus" Content="-" HorizontalAlignment="Left" Height="23" Margin="208,4,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" FontSize="16" Foreground="#FF0E0C0C"/>
+                <Button x:Name="bananaPlus" Content="+" HorizontalAlignment="Left" Height="23" Margin="242,47,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" Foreground="#FF0E0D0D" FontSize="14"/>
+                <Button x:Name="bananaMinus" Content="-" HorizontalAlignment="Left" Height="23" Margin="208,47,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" FontSize="14" FontWeight="Bold" Foreground="#FF0A0909"/>
+                <Button x:Name="strowPlus" Content="+" HorizontalAlignment="Left" Height="23" Margin="242,84,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" FontSize="14" Foreground="#FF100F0F"/>
+                <Button x:Name="strowMinus" Content="-" HorizontalAlignment="Left" Height="23" Margin="208,84,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" FontWeight="Bold" FontSize="14" Foreground="#FF0C0B0B"/>
+                <Button x:Name="chocolatePlus" Content="+" HorizontalAlignment="Left" Height="23" Margin="242,122,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" Foreground="#FF0C0B0B"/>
+                <Button x:Name="chocolateMinus" Content="-" HorizontalAlignment="Left" Height="23" Margin="208,122,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="-0.621,0.554" FontSize="14" FontWeight="Bold" Foreground="#FF100F0F"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="extraGroupBox" HorizontalAlignment="Left" Height="130" Header="Extra" Margin="11,488,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.479,0.443" Grid.Row="1" IsEnabled="False">
+            <Grid>
+                <StackPanel  Orientation="Vertical" >
+                    <RadioButton x:Name="PeaNut" Content="PeaNut" GroupName="Exrta" Margin="0,10,0,20" Checked="ExtraCheckBox_checked" />
+                    <RadioButton x:Name="HazeNut" Content="HazeNut" GroupName="Exrta" Margin="0,0,0,20"  Checked="ExtraCheckBox_checked"/>
+                    <RadioButton x:Name="AntepNut" Content="AntepNut" GroupName="Exrta" Margin="0,0,0,20"  Checked="ExtraCheckBox_checked"/>
+                </StackPanel>
+
+
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="pricesGroupBox" HorizontalAlignment="Left" Height="175" Header="Calori And Price" Margin="153,488,0,0" VerticalAlignment="Top" Width="146" Grid.Row="1" IsEnabled="False" >
+            <Grid>
+                <Label Content="unitPrice" HorizontalAlignment="Right" Height="23" Margin="0,10,67,0" VerticalAlignment="Top" Width="67"/>
+                <Label Content="Unit Calori" HorizontalAlignment="Left" Height="23" Margin="0,53,0,0" VerticalAlignment="Top" Width="67" FontSize="11"/>
+                <Label Content="Amont" HorizontalAlignment="Left" Height="23" Margin="0,91,0,0" VerticalAlignment="Top" Width="67"/>
+                <Label Content="TotalPrice" HorizontalAlignment="Left" Height="23" Margin="0,129,0,0" VerticalAlignment="Top" Width="67"/>
+                <TextBox Name="unitPrice" HorizontalAlignment="Left" Height="22" Margin="72,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" />
+
+                <TextBox Name="unitCalori" HorizontalAlignment="Left" Height="22" Margin="72,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"  />
+
+                <TextBox x:Name="totalAmontPrice" HorizontalAlignment="Left" Height="22" Margin="72,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+                <Button x:Name="amontPlus" Content="+" HorizontalAlignment="Left" Height="20" Margin="113,94,0,0" VerticalAlignment="Top" Width="16" Foreground="#FF0C0B0B" FontWeight="Bold"/>
+                <Button x:Name="amontMinus" Content="-" HorizontalAlignment="Left" Height="20" Margin="97,94,0,0" VerticalAlignment="Top" Width="16" FontWeight="Bold" Foreground="#FF080707"/>
+                <TextBox x:Name="amont" HorizontalAlignment="Left" Height="22" Margin="72,93,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="25"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="invoiceGroupBox" HorizontalAlignment="Left" Header="Invoice" Margin="304,363,0,21" Width="575" IsEnabled="False">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="-2,25,0,2" Width="NaN">
+                    <ListView x:Name="listView" Height="146" Width="546" IsHitTestVisible="False"  ItemsSource="{Binding orderItems}" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="False" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Ice Cream" Width="130" DisplayMemberBinding="{Binding Property1 }" />
+                                <GridViewColumn Header="Name" Width="65" DisplayMemberBinding="{Binding Property2}" />
+                                <GridViewColumn Header="Address" Width="65" DisplayMemberBinding="{Binding Property3}" />
+                                <GridViewColumn Header="Extra" Width="65" DisplayMemberBinding="{Binding Property4}" />
+                                <GridViewColumn Header="Unit Price" Width="65" DisplayMemberBinding="{Binding Property5}" />
+                                <GridViewColumn Header="Calories" Width="65" DisplayMemberBinding="{Binding Property6}" />
+                                <GridViewColumn Header="Total Price" Width="65" DisplayMemberBinding="{Binding Property7}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Button Content="Delete" Height="36" Width="76" HorizontalAlignment="Left" Margin="10,0,0,0" RenderTransformOrigin="0.579,0.918" Click="DeleteButton_Click"/>
+                    <TextBox x:Name="grandtotal" Height="22" Width="76" RenderTransformOrigin="0.572,0.504" />
+                    <Label Content="Grand Total" Height="33" Width="72" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="additionsPictursGroupBox" HorizontalAlignment="Left" Height="178" Header="Additions Pictures" Margin="337,29,0,0" VerticalAlignment="Top" Width="433" IsEnabled="False">
+            <Grid>
+                <Image x:Name="lemonImg" HorizontalAlignment="Left" Height="80" Margin="10,30,0,0" VerticalAlignment="Top" Width="80" Source="/lemon1.jpg" Visibility="Hidden" />
+                <Image x:Name="bananaImg" HorizontalAlignment="Left" Height="80" Margin="110,30,0,0" VerticalAlignment="Top" Width="80" Source="/banana2.jpg" Visibility="Hidden" />
+                <Image x:Name="strowImg" HorizontalAlignment="Left" Height="80" Margin="219,30,0,0" VerticalAlignment="Top" Width="80" Source="/strow3.jpg" Visibility="Hidden" />
+                <Image x:Name="chocoimg" HorizontalAlignment="Left" Height="80" Margin="323,30,0,0" VerticalAlignment="Top" Width="80" Source="/chocolate4.jpg" Visibility="Hidden"/>
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="insertOrderButton" Content="Insert" HorizontalAlignment="Left" Height="33" Margin="337,316,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold" FontSize="20" Grid.Row="1" IsEnabled="False" Click="InsertOrderButton_Click" Tag="{x:Reference listView}"/>
+        <Button x:Name="newOrderButton" Content="New Order" HorizontalAlignment="Left" Height="33" Margin="436,316,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold" Grid.Row="1" IsEnabled="False" Click="NewOrderButton_Click"/>
+        <Button x:Name="newCustomerButton" Content="New Customer" HorizontalAlignment="Left" Height="33" Margin="528,316,0,0" VerticalAlignment="Top" Width="97" FontWeight="Bold" Grid.Row="1" Click="NewCustomerButton_Click"/>
+        <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Height="33" Margin="630,316,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold" FontSize="18" Grid.Row="1" Click="ExitButton_Click"/>
+
+    </Grid>
+</Window>

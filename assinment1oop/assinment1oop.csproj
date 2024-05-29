@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>ice cream Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="banana2.jpg" />
+    <None Remove="chocolate4.jpg" />
+    <None Remove="lemon1.jpg" />
+    <None Remove="strow3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ice cream Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="banana2.jpg" />
+    <Resource Include="chocolate4.jpg" />
+    <Resource Include="lemon1.jpg" />
+    <Resource Include="strow3.jpg" />
+  </ItemGroup>
+
+</Project>
